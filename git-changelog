@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Get the latest tag if one exists
-latest_tag = `git tag -l | tail -1`.chomp()
+latest_tag = `git for-each-ref refs/tags --sort=committerdate --format="%(refname:short)" | tail -1`.chomp()
 log_base = latest_tag.length > 0 ? "#{latest_tag}.." : ''
 
 # Git log formatting
